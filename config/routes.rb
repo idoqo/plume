@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :v1 do
+    devise_for :users,
+               path: 'auth',
+               path_names: {
+                   sign_in: 'login',
+                   sign_out: 'logout',
+                   registration: 'signup'
+               },
+               controllers: {
+                   sessions: 'v1/sessions',
+                   registrations: 'v1/registrations'
+               }
+  end
 end
