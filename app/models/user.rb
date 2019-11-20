@@ -7,4 +7,6 @@ class User < ApplicationRecord
   validates :email, presence: true
   # ensure that the full name has at least a space
   validates :full_name, presence: true, format: {with: /\s/}
+
+  has_many :businesses
 end

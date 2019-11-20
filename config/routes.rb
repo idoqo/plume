@@ -11,5 +11,6 @@ Rails.application.routes.draw do
                    sessions: 'v1/sessions',
                    registrations: 'v1/registrations'
                }
+    resources :businesses, controller: 'v1/businesses'
   end
 end
