@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9c39de9-fe48-46a8-934a-82ca066051c6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/plume.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/plume.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/controllers/v1/sessions_controller_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/controllers/v1/sessions_controller_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/v1/businesses_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/v1/businesses_controller.rb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -158,7 +158,7 @@
       <workItem from="1573905121581" duration="3453000" />
       <workItem from="1574015011161" duration="8441000" />
       <workItem from="1574130408578" duration="1200000" />
-      <workItem from="1574174165653" duration="12434000" />
+      <workItem from="1574174165653" duration="14447000" />
     </task>
     <servers />
   </component>

@@ -1,8 +1,9 @@
 class V1::BusinessesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :update]
+  wrap_parameters :business, format: [:json]
 
   def index
-    render json: Business.new(name: "jel")
+    paginate Business.unscoped, per_page: 1
   end
 
   def create
