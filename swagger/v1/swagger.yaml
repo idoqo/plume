@@ -1,0 +1,57 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+basePath: "/v1"
+paths:
+  "/auth/login":
+    post:
+      summary: Logs in a user
+      consumes:
+      - application/json
+      parameters:
+      - name: user
+        in: body
+        schema:
+          type: object
+          properties:
+            email:
+              type: string
+            password:
+              type: string
+          required:
+          - email
+          - password
+      responses:
+        '200':
+          description: Success
+  "/businesses":
+    post:
+      summary: Creates a new business
+      consumes:
+      - application/json
+      parameters:
+      - name: business
+        in: body
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+            logo:
+              type: string
+            description:
+              type: string
+            main_address:
+              type: string
+            phone:
+              type: string
+          required:
+          - name
+          - main_address
+      responses:
+        '201':
+          description: business created
+        '422':
+          description: invalid request
