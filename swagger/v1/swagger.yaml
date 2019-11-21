@@ -27,6 +27,14 @@ paths:
         '200':
           description: Success
   "/businesses":
+    get:
+      summary: List all businesses
+      parameters:
+      - name: page
+        in: query
+      responses:
+        '200':
+          description: success
     post:
       summary: Creates a new business
       consumes:

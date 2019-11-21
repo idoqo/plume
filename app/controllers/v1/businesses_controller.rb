@@ -3,7 +3,7 @@ class V1::BusinessesController < ApplicationController
   wrap_parameters :business, format: [:json]
 
   def index
-    paginate Business.unscoped, per_page: 1
+    paginate Business.unscoped, per_page: 10
   end
 
   def create

@@ -2,6 +2,13 @@ require 'swagger_helper'
 
 describe "Businesses API" do
   path '/businesses' do
+    get 'List all businesses' do
+      parameter name: :page, in: :query
+      response '200', 'success' do
+        run_test!
+      end
+    end
+
     post 'Creates a new business' do
       consumes 'application/json'
       parameter name: :business, in: :body, schema: {
