@@ -11,6 +11,7 @@ describe "Businesses API" do
 
     post 'Creates a new business' do
       consumes 'application/json'
+      security [ bearerAuth: [] ]
       parameter name: :business, in: :body, schema: {
           type: :object,
           properties: {

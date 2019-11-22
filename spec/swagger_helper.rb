@@ -19,7 +19,23 @@ RSpec.configure do |config|
         title: 'API V1',
         version: 'v1'
       },
-      basePath: '/v1',
+      servers: [
+          {url: "/v1",
+           description: "v1 of the API spec"
+          },
+          {url: "/v2",
+           description: "v2 of the API spec"
+          }
+      ],
+      components: {
+          securitySchemes: {
+              bearerAuth: {
+                  type: "http",
+                  scheme: "bearer",
+                  bearerFormat: "JWT"
+              }
+          }
+      }
     }
   }
 

@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b9c39de9-fe48-46a8-934a-82ca066051c6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/v1/sessions_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/v1/sessions_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/initializers/wrap_parameters.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/wrap_parameters.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/integration/v1/auth_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/integration/v1/auth_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/integration/v1/businesses_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/integration/v1/businesses_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/swagger_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/swagger_helper.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/swagger/v1/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/swagger/v1/swagger.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -201,7 +200,7 @@
       <workItem from="1574130408578" duration="1200000" />
       <workItem from="1574174165653" duration="18549000" />
       <workItem from="1574339197407" duration="7302000" />
-      <workItem from="1574358802022" duration="2496000" />
+      <workItem from="1574358802022" duration="5919000" />
     </task>
     <servers />
   </component>
