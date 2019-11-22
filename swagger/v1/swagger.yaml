@@ -4,6 +4,14 @@ info:
   title: API V1
   version: v1
 basePath: "/v1"
+servers:
+  - url: /{version}
+    description: Main API server
+    variables:
+      version:
+        enum:
+          - v1
+        default: v1
 paths:
   "/auth/login":
     post:

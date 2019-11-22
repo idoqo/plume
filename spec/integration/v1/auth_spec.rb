@@ -14,10 +14,10 @@ describe 'Authentication endpoints' do
       }
 
       response '200', 'Success' do
-        run_test! do |response|
-          data = JSON.parse(response.headers)
-          print data
-        end
+        run_test!
+      end
+
+      response '401', "Unauthorized" do
       end
     end
   end
