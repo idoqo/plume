@@ -1,8 +1,9 @@
 ---
-openapi: 3.0.1
+swagger: '2.0'
 info:
   title: API V1
   version: v1
+basePath: "/v1"
 servers:
 - url: "/v1"
   description: v1 of the API spec
@@ -14,28 +15,39 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+definitions:
+  user:
+    type: object
+    properties:
+      user:
+        type: object
+        properties:
+          email:
+            type: string
+          password:
+            type: string
+    required:
+    - user
 paths:
   "/auth/login":
     post:
       summary: Logs in a user
       consumes:
       - application/json
+      - application/xml
+      produces:
+      - application/json
       parameters:
       - name: user
         in: body
+        required: true
         schema:
-          type: object
-          properties:
-            email:
-              type: string
-            password:
-              type: string
-          required:
-          - email
-          - password
+          "$ref": "#/definitions/user"
       responses:
         '200':
           description: Success
+        '401':
+          description: Unauthorized
   "/businesses":
     get:
       summary: List all businesses

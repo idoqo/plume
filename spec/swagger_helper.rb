@@ -14,11 +14,12 @@ RSpec.configure do |config|
   # the root example_group in your specs, e.g. describe '...', swagger_doc: 'v2/swagger.json'
   config.swagger_docs = {
     'v1/swagger.yaml' => {
-      openapi: '3.0.1',
+      swagger: '2.0',
       info: {
         title: 'API V1',
         version: 'v1'
       },
+      basePath: "/v1",
       servers: [
           {url: "/v1",
            description: "v1 of the API spec"
@@ -32,8 +33,23 @@ RSpec.configure do |config|
               bearerAuth: {
                   type: "http",
                   scheme: "bearer",
-                  bearerFormat: "JWT"
+                  bearerFormat: "oauth2"
               }
+          }
+      },
+      definitions: {
+          user: {
+              type: 'object',
+              properties: {
+                  user: {
+                      type: :object,
+                      properties: {
+                          email: {type: :string},
+                          password: {type: :string}
+                      }
+                  }
+              },
+              required: ['user']
           }
       }
     }
