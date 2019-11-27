@@ -3,9 +3,7 @@ require 'pp'
 
 describe 'Authentication endpoints' do
   before :each do
-    @sample_user = User.create!(email: 'ck@example.com',
-                  full_name: 'Chuk Wu',
-                  password: 'topsecret')
+    @sample_user = create(:user)
   end
 
   path '/auth/login' do
@@ -19,9 +17,10 @@ describe 'Authentication endpoints' do
 
       response '200', 'Sign in successful' do
         let(:user) {{ email: @sample_user.email, password: 'topsecret' }}
-        run_test! do |response|
-          PP.pp response.header['Authorization']
-        end
+        run_test!
+        # do |response|
+        #  PP.pp response.header['Authorization']
+        # end
       end
 
       response '401', "Unauthorized" do

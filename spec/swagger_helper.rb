@@ -30,10 +30,10 @@ RSpec.configure do |config|
       ],
       components: {
           securitySchemes: {
-              bearerAuth: {
-                  type: "http",
-                  scheme: "bearer",
-                  bearerFormat: "oauth2"
+              bearer: {
+                  type: :apiKey,
+                  name: :Authorization,
+                  in: :header
               }
           }
       },

@@ -6,7 +6,7 @@ class Business < ApplicationRecord
   validates :main_address, presence: true
 
   def instagram=(val)
-    val.gsub!(/#{URI::regexp}/, '')
-    write_attribute(:instagram, val)
+    # val.gsub!(/#{URI::regexp}/, '')
+    write_attribute(:instagram, (val.tr '@', ''))
   end
 end
