@@ -10,13 +10,20 @@ class V1::BusinessesController < ApplicationController
     @business = Business.new(businesses_param)
     @business.user = current_user
     if @business.save
-      render json: @business, location: @business, status: :created
+      render json: {data: @business}, location: @business, status: :created
     else
       render json: @business.errors, status: :unprocessable_entity
     end
   end
 
   def update
+  end
+
+  def show
+    @export_data = Business.find(params[:id])
+    render json: @export_data.to_json(
+          include: {user: {except: [:created_at, :updated_at]}
+          })
   end
 
   private
