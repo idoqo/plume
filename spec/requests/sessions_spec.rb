@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe V1::SessionsController do
+RSpec.describe 'Sessions requests' do
   describe ".login" do
     context "when fields are incomplete" do
       before do

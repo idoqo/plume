@@ -15,5 +15,6 @@ Rails.application.routes.draw do
                    registrations: 'v1/registrations'
                }
     resources :businesses, controller: 'v1/businesses'
+    get '/businesses/delete/:id', to: 'businesses#delete'
   end
 end

@@ -12,11 +12,24 @@ class V1::BusinessesController < ApplicationController
     if @business.save
       render json: {data: @business}, location: @business, status: :created
     else
-      render json: @business.errors, status: :unprocessable_entity
+      render json:  {data: @business.errors}, status: :unprocessable_entity
     end
   end
 
   def update
+    @business = Business.find(params[:id])
+    if @business.user.id != current_user.id
+      @business.errors.add(:base, "access denied")
+      render json: {data: @business.errors}, status: :unauthorized
+    else
+      @business.update(businesses_param)
+    end
+  end
+
+  def delete
+    @business = Business.find(params[:id])
+    @business.destroy
+    head :ok
   end
 
   def show

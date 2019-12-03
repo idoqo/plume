@@ -5,5 +5,6 @@ FactoryBot.define do
     description {"best nail tech in the world hoohoo"}
     main_address {"Alumni Hall, OAU, Ile-Ife"}
     instagram {"nailfactoryy"}
+    user {create(:user)}
   end
 end
