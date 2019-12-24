@@ -11,12 +11,12 @@ servers:
   description: v2 of the API spec
 components:
   securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
+    bearer:
+      type: apiKey
+      name: Authorization
+      in: header
 definitions:
-  user:
+  user_login:
     type: object
     properties:
       user:
@@ -28,13 +28,42 @@ definitions:
             type: string
     required:
     - user
+  user:
+    type: object
+    properties:
+      user:
+        type: object
+        properties:
+          email:
+            type: string
+          password:
+            type: string
+          full_name:
+            type: string
 paths:
   "/auth/login":
     post:
       summary: Logs in a user
       consumes:
       - application/json
-      - application/xml
+      produces:
+      - application/json
+      parameters:
+      - name: user
+        in: body
+        required: true
+        schema:
+          "$ref": "#/definitions/user_login"
+      responses:
+        '200':
+          description: Sign in successful
+        '401':
+          description: Unauthorized
+  "/auth/signup":
+    post:
+      summary: Register a new user
+      consumes:
+      - application/json
       produces:
       - application/json
       parameters:
@@ -45,45 +74,6 @@ paths:
           "$ref": "#/definitions/user"
       responses:
         '200':
-          description: Success
-        '401':
-          description: Unauthorized
-  "/businesses":
-    get:
-      summary: List all businesses
-      parameters:
-      - name: page
-        in: query
-      responses:
-        '200':
-          description: success
-    post:
-      summary: Creates a new business
-      consumes:
-      - application/json
-      security:
-      - bearerAuth: []
-      parameters:
-      - name: business
-        in: body
-        schema:
-          type: object
-          properties:
-            name:
-              type: string
-            logo:
-              type: string
-            description:
-              type: string
-            main_address:
-              type: string
-            phone:
-              type: string
-          required:
-          - name
-          - main_address
-      responses:
-        '201':
-          description: business created
+          description: User created
         '422':
-          description: invalid request
+          description: Fails when full name contains no space

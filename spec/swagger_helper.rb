@@ -38,7 +38,7 @@ RSpec.configure do |config|
           }
       },
       definitions: {
-          user: {
+          user_login: {
               type: 'object',
               properties: {
                   user: {
@@ -50,6 +50,19 @@ RSpec.configure do |config|
                   }
               },
               required: ['user']
+          },
+          user: {
+              type: 'object',
+              properties: {
+                  user: {
+                      type: 'object',
+                      properties: {
+                          email: {type: :string},
+                          password: {type: :string},
+                          full_name: {type: :string}
+                      }
+                  }
+              }
           }
       }
     }

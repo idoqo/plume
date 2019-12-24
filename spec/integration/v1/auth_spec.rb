@@ -8,12 +8,11 @@ describe 'Authentication endpoints' do
 
   path '/auth/login' do
     post 'Logs in a user' do
-      consumes 'application/json', 'application/xml'
+      consumes 'application/json'
       produces 'application/json'
       parameter name: :user, in: :body, required: true, schema: {
-          '$ref' => '#/definitions/user'
+          '$ref' => '#/definitions/user_login'
       }
-
 
       response '200', 'Sign in successful' do
         let(:user) {{ email: @sample_user.email, password: 'topsecret' }}
@@ -25,6 +24,34 @@ describe 'Authentication endpoints' do
 
       response '401', "Unauthorized" do
         let(:user) {{ user: {email: 'me@mchl.xyz', password: ''} }}
+        run_test!
+      end
+    end
+  end
+
+  path '/auth/signup' do
+    post 'Register a new user' do
+      consumes 'application/json'
+      produces 'application/json'
+      parameter name: :user, in: :body, required: true, schema: {
+          '$ref' => '#/definitions/user'
+      }
+
+      response '201', 'User created' do
+        let(:user) {{email: @sample_user.email, password: @sample_user.password,
+                     full_name: @sample_user.full_name}}
+        run_test!
+      end
+
+      response '422', 'Fails for invalid email' do
+        let(:user) {{email: "mail", password: @sample_user.password,
+                     full_name: @sample_user.full_name}}
+        run_test!
+      end
+
+      response '422', 'Fails when full name contains no space' do
+        let(:user) {{email: @sample_user.email, password: @sample_user.password,
+                     full_name: "Chukwuma"}}
         run_test!
       end
     end
