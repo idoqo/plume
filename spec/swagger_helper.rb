@@ -63,6 +63,15 @@ RSpec.configure do |config|
                       }
                   }
               }
+          },
+          businesses: {
+              type: 'object',
+              properties: {
+                  name: {type: :string},
+                  logo: {type: :string},
+                  description: {type: :string},
+                  main_address: {type: :string},
+              }
           }
       }
     }

@@ -1,15 +1,13 @@
 require 'swagger_helper'
-require 'spec_helper'
-require 'devise/jwt/test_helpers'
 
-describe "Businesses API" do
+describe 'Businesses' do
   path '/businesses' do
-    get 'List all businesses' do
-      parameter name: 'page', in: :query, type: 'string'
+    get 'Fetch businesses list' do
+      consumes 'application/json'
+      produces 'application/json'
 
-      let(:page) { 1 }
       response '200', 'success' do
-        schema type: 'array', items: {'$ref' => '#/definitions/business'}
+        run_test!
       end
     end
   end

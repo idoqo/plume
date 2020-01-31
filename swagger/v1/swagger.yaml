@@ -40,6 +40,17 @@ definitions:
             type: string
           full_name:
             type: string
+  businesses:
+    type: object
+    properties:
+      name:
+        type: string
+      logo:
+        type: string
+      description:
+        type: string
+      main_address:
+        type: string
 paths:
   "/auth/login":
     post:
@@ -73,7 +84,17 @@ paths:
         schema:
           "$ref": "#/definitions/user"
       responses:
-        '200':
+        '201':
           description: User created
         '422':
           description: Fails when full name contains no space
+  "/businesses":
+    get:
+      summary: Fetch businesses list
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: success

@@ -10,6 +10,8 @@ COPY . /plume
 
 COPY entrypoint.sh /usr/bin
 RUN chmod +x /usr/bin/entrypoint.sh
+# setup common aliases. PS: They only work from interactive shells
+RUN echo 'alias rake rswag="rake rswag:specs:swaggerize"' >> ~/.bashrc
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 CMD ["rails", "server", "-b", "0.0.0.0", "3000"]
