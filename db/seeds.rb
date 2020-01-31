@@ -5,11 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-categories = Category.create([
+User.create([
+                        {email: "hello@example.com", full_name: "Plume User", password: "hello-plume-0x"}
+                    ])
+Category.create([
                                  {name: 'Fashion Designs', description: ''},
+                                 {name: 'Technology', description: ''},
                                  {name: 'Clothing/Boutiques', description: ''},
                                  {name: 'Food & Restaurants', description: ''},
                                  {name: 'Cakes/Bakery', description: ''},
                                  {name: 'Events Management', description: ''},
                                  {name: 'Photography', description: ''}
                              ])
+Business.create([
+                          {name: "Afkit Technologies", logo: "afkit.png",
+                           user_id: 1, description: "The tech company you can trust", main_address: "New Market",
+                           phone: "+2349000000033", email: "afkit-plume@example.com",
+                           whatsapp_phone: "+2349000000033",
+                           twitter:"", instagram: "afkit_tech",  category_id: 2
+                          }
+                      ])
